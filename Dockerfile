@@ -13,7 +13,12 @@ RUN yum-config-manager --setopt="epel.priority=20" --save
 
 RUN yum install -y nano tree which
 RUN yum install -y curl wget nmap
-RUN yum install -y supervisor --enablerepo="epel"
+
+#RUN yum install -y supervisor --enablerepo="epel"
+RUN yum install -y python-setuptools python-pip --enablerepo="epel"
+RUN pip install -U pip
+RUN pip install -U supervisor
+RUN pip install -U supervisor-stdout
 
 RUN yum install -y httpd httpd-tools
 RUN yum install -y php php-fpm php-cli
@@ -32,18 +37,23 @@ RUN wget "https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.p
 COPY src/wp /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp /usr/local/bin/wp-cli.phar
 
+RUN mkdir --parents /var/log/wordpress
+
 COPY src/supervisord.conf /etc/supervisord.conf
 COPY src/run.sh /opt/run.sh
 COPY src/run_install.sh /opt/run_install.sh
 COPY src/run_install_init.sh /opt/run_install_init.sh
+COPY src/supervisord.sh /opt/supervisord.sh
 
-ENV WORDPRESS_URL 127.0.0.1
-ENV WORDPRESS_TITLE DCWW
-ENV WORDPRESS_USER admin
-ENV WORDPRESS_PASSWORD admin
-ENV WORDPRESS_EMAIL example@example.com
+ENV WP_URL 127.0.0.1
+ENV WP_TITLE DCWW
+ENV WP_USER admin
+ENV WP_PASSWORD admin
+ENV WP_EMAIL example@example.com
+ENV WP_LOCALE en_US
 
 WORKDIR /var/www/html
 EXPOSE 80
 VOLUME ["/var/www/html"]
-CMD ["/usr/bin/supervisord", "--nodaemon"]
+CMD ["/bin/bash", "-li", "/opt/supervisord.sh"]
+#CMD ["/usr/bin/supervisord", "--nodaemon"]

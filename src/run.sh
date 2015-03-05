@@ -1,5 +1,4 @@
 #!/bin/bash
-supervisord
 cd /var/www/html
 
 if ! $(wp core is-installed); then
