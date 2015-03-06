@@ -54,6 +54,6 @@ ENV WP_LOCALE en_US
 
 WORKDIR /var/www/html
 EXPOSE 80
-VOLUME ["/var/www/html"]
+VOLUME ["/var/www/html", "/var/lib/mysql"]
 CMD ["/bin/bash", "-li", "/opt/supervisord.sh"]
 #CMD ["/usr/bin/supervisord", "--nodaemon"]
