@@ -6,7 +6,7 @@ dcww:
   privileged: true
   environment:
     WP_URL: 192.168.59.103
-    WP_TITLE: DCWW (boot2docker)
+    WP_TITLE: DCWW_(boot2docker)
     WP_USER: root
     WP_PASSWORD: password
     WP_EMAIL: example@example.com
