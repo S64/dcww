@@ -2,12 +2,6 @@
 cd /var/www/html
 sleep 5
 
-res=`wp core is-installed`
-ret=$?
-
-echo $res
-echo $ret
-
-if ! [ $ret -eq 0 ]; then
+if ! $(wp core is-installed); then
   source /opt/run_install.sh
 fi
