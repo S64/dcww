@@ -5,12 +5,12 @@ dcww:
     - 80:80
   privileged: true
   environment:
-    WP_URL: 127.0.0.1
-    WP_TITLE: DCWW (docker-compose)
-    WP_USER: admin
-    WP_PASSWORD: admin
+    WP_URL: 192.168.59.103
+    WP_TITLE: DCWW (boot2docker)
+    WP_USER: root
+    WP_PASSWORD: password
     WP_EMAIL: example@example.com
-    WP_LOCALE: en_US
+    WP_LOCALE: ja
   volumes:
     - ./volumes/wordpress:/var/www/html
     - ./volumes/nginx_conf.d:/etc/nginx/conf.d
