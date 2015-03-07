@@ -1,8 +1,0 @@
-dcww:
-  hostname: dcww
-  build: ./
-  ports:
-    - 80:80
-  volumes:
-    - ./volumes/wordpress:/var/www/html
-    - ./volumes/mysql:/var/lib/mysql

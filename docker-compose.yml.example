@@ -1,0 +1,16 @@
+dcww:
+  hostname: dcww
+  build: ./
+  ports:
+    - 80:80
+  privileged: true
+  environment:
+    WP_URL: 127.0.0.1
+    WP_TITLE: DCWW (docker-compose)
+    WP_USER: admin
+    WP_PASSWORD: admin
+    WP_EMAIL: example@example.com
+    WP_LOCALE: en_US
+  volumes:
+    - ./volumes/wordpress:/var/www/html
+    - ./volumes/nginx_conf.d:/etc/nginx/conf.d

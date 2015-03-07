@@ -1,1 +1,3 @@
-/volumes
+!/volumes
+/docker-compose.yml
+!/docker-compose.yml.example
