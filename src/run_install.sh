@@ -8,6 +8,7 @@ define( 'WP_DEBUG_DISPLAY', true );
 ini_set( 'display_errors', 1 );
 ini_set( 'log_errors', 1 );
 ini_set( 'error_log', '/var/log/wordpress/error.log');
+define( 'JETPACK_DEV_DEBUG', true );
 PHP
 
 wp db create
