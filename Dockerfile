@@ -46,6 +46,9 @@ ENV WP_PASSWORD admin
 ENV WP_EMAIL example@example.com
 ENV WP_LOCALE en_US
 
+ENV WP_ALLOW_MULTISITE 0
+ENV WP_MULTISITE_SUBDOMAINS 0
+
 WORKDIR /var/www/html
 EXPOSE 80
 VOLUME ["/var/www/html", "/etc/nginx/conf.d"]
