@@ -1,7 +1,12 @@
 #!/bin/bash
 cd /var/www/html
 
-wp core download --locale=$WP_LOCALE
+if [ -n "$WP_VERSION" ]; then
+  wp core download --version="'${WP_VERSION}'" --locale=$WP_LOCALE
+else
+  wp core download --locale=$WP_LOCALE
+fi
+
 wp core config --dbname='wordpress' --dbuser='root' --dbhost='127.0.0.1' --extra-php <<PHP
 define( 'WP_DEBUG', true );
 define( 'WP_DEBUG_DISPLAY', true );
