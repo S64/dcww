@@ -39,6 +39,8 @@ COPY src/run_install_init.sh /opt/run_install_init.sh
 COPY src/supervisord.sh /opt/supervisord.sh
 COPY src/nginx.conf /etc/nginx/nginx.conf
 
+RUN mkdir --parents /opt/wordpress
+
 ENV WP_URL 127.0.0.1
 ENV WP_TITLE DCWW
 ENV WP_USER admin
@@ -52,5 +54,5 @@ ENV WP_MULTISITE_SUBDOMAINS 0
 
 WORKDIR /var/www/html
 EXPOSE 80
-VOLUME ["/var/www/html", "/etc/nginx/conf.d"]
+VOLUME ["/var/www/html", "/etc/nginx/conf.d", "/opt/wordpress"]
 CMD ["/bin/bash", "-li", "/opt/supervisord.sh"]
