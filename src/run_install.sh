@@ -18,7 +18,7 @@ PHP
 
 wp db create
 
-install_eval="--url='${WP_URL}' --title='${WP_TITLE}' --admin_user='${WP_USER}'--admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}'"
+install_eval="--url='${WP_URL}' --title='${WP_TITLE}' --admin_user='${WP_USER}' --admin_password='${WP_PASSWORD}' --admin_email='${WP_EMAIL}'"
 if ! [ $WP_ALLOW_MULTISITE ]; then
   install_eval="wp core install ${install_eval}"
 else
