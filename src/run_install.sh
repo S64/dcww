@@ -22,10 +22,10 @@ install_eval="--url='${WP_URL}' --title='${WP_TITLE}' --admin_user='${WP_USER}' 
 if ! [ $WP_ALLOW_MULTISITE ]; then
   install_eval="wp core install ${install_eval}"
 else
-  install_eval="wp core multisite-install ${install_eval}"
-  if [ $WP_MULTISITE_SUBDOMAINS ]; then
-    install_eval="${install_eval} --subdomains"
-  fi
+  install_eval="wp core multisite-install ${install_eval} --subdomains"
+#  if [ $WP_MULTISITE_SUBDOMAINS ]; then
+#    install_eval="${install_eval} --subdomains"
+#  fi
 fi
 eval $install_eval
 
