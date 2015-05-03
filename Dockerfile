@@ -38,6 +38,7 @@ COPY src/run_install.sh /opt/run_install.sh
 COPY src/run_install_init.sh /opt/run_install_init.sh
 COPY src/supervisord.sh /opt/supervisord.sh
 COPY src/nginx.conf /etc/nginx/nginx.conf
+COPY src/php_php5.4.16.ini /etc/php.ini
 COPY src/www_php5.4.16.conf /etc/php-fpm.d/www.conf
 
 RUN mkdir --parents /opt/wordpress
